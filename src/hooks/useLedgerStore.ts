@@ -19,7 +19,7 @@ const useLedgerStore = () => {
         const savedData = localStorage.getItem(STORAGE_KEY);
         if (savedData) {
           const parsedData = JSON.parse(savedData);
-          const recordsWithDate = parsedData.map(record => ({
+          const recordsWithDate = parsedData.map((record: any) => ({
             ...record,
             time: new Date(record.time),
             userProvidedTime: record.userProvidedTime || false

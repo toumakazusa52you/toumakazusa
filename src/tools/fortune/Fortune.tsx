@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { storage } from '@/shared/utils/storage';
 import { STORAGE_KEYS } from '@/shared/constants';
-import type { Fortune as FortuneType } from '@/shared/types';
+import type { Fortune as FortuneType, ToolState } from '@/shared/types';
 
 const FORTUNES: FortuneType[] = [
   { id: '1', title: '上上签', content: '龙年大吉，万事如意，财源广进，福星高照。', luck: '上上' },
@@ -33,8 +33,8 @@ export default function Fortune() {
   };
 
   const updateToolUsage = () => {
-    const toolStates = storage.get(STORAGE_KEYS.TOOL_STATES, []);
-    const existingIndex = toolStates.findIndex((s: any) => s.id === 'fortune');
+    const toolStates = storage.get(STORAGE_KEYS.TOOL_STATES, []) as ToolState[];
+    const existingIndex = toolStates.findIndex((s: ToolState) => s.id === 'fortune');
     
     if (existingIndex >= 0) {
       toolStates[existingIndex].usageCount += 1;
