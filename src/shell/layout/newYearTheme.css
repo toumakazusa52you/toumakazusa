@@ -1,8 +1,8 @@
 /* 新中式新年主题样式 - SVG版本 */
 
-/* 背景基底色 - 深绯红，带暗角效果 */
+/* 背景基底色 - 深红色 */
 .new-year-bg {
-  background: radial-gradient(ellipse at center, #c41e3a 0%, #8b0000 50%, #5c0000 100%);
+  background: linear-gradient(180deg, #8B0000 0%, #6B0000 50%, #4B0000 100%);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -123,6 +123,57 @@
   pointer-events: none;
 }
 
+/* 金币装饰 */
+.gold-coins {
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.coin {
+  position: absolute;
+  animation: float 3s ease-in-out infinite;
+}
+
+.coin-1 {
+  bottom: 30px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.coin-2 {
+  bottom: 50px;
+  left: 20%;
+  animation-delay: 0.5s;
+}
+
+.coin-3 {
+  bottom: 20px;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.coin-4 {
+  bottom: 30px;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+.coin-5 {
+  bottom: 50px;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.coin-6 {
+  bottom: 20px;
+  right: 30%;
+  animation-delay: 2.5s;
+}
+
 /* 动画效果 */
 @keyframes swing {
   0%, 100% {
@@ -163,14 +214,15 @@
 
 /* 内容容器 */
 .content-container {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(139, 0, 0, 0.85);
   border-radius: 8px;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(255, 215, 0, 0.1);
   padding: 30px;
   position: relative;
   overflow: hidden;
+  border: 2px solid rgba(255, 215, 0, 0.4);
 }
 
 /* 内容容器边缘装饰 */
@@ -180,8 +232,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #ffcc00, transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
 }
 
 .content-container::after {
@@ -190,19 +242,23 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #ffcc00, transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, #FFA500, #FFD700, transparent);
 }
 
 /* 标题样式 */
 .new-year-title {
   font-family: 'Microsoft YaHei', 'SimSun', serif;
-  color: #8b0000;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-align: center;
   margin-bottom: 30px;
   position: relative;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
+  filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.3));
 }
 
 .new-year-title::before,
@@ -211,7 +267,10 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #ffcc00;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 16px;
 }
 
@@ -225,56 +284,60 @@
 
 /* 按钮样式 */
 .new-year-btn {
-  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
-  color: #ffffff;
-  border: 2px solid #ffcc00;
+  background: linear-gradient(135deg, #8B0000 0%, #6B0000 100%);
+  color: #FFD700;
+  border: 2px solid #FFD700;
   border-radius: 4px;
   padding: 12px 30px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3);
   font-family: 'Microsoft YaHei', sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .new-year-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 6px 16px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #d42a4a 0%, #9b0000 100%);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.5);
+  background: linear-gradient(135deg, #A00000 0%, #8B0000 100%);
+  border-color: #FFA500;
+  color: #FFA500;
 }
 
 .new-year-btn:active {
   transform: translateY(0);
-  box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 215, 0, 0.3);
 }
 
 /* 卡片样式 */
 .new-year-card {
-  background: #ffffff;
+  background: rgba(139, 0, 0, 0.6);
   border-radius: 4px;
-  box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(255, 215, 0, 0.1);
   padding: 24px;
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(196, 30, 58, 0.2);
+  border: 2px solid rgba(255, 215, 0, 0.4);
   transition: all 0.3s ease;
 }
 
 .new-year-card:hover {
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.3),
+    inset 0 0 30px rgba(255, 215, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(255, 165, 0, 0.6);
 }
 
 .new-year-card::before {
@@ -284,7 +347,15 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, #ffcc00 0%, #c41e3a 100%);
+  background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+}
+
+.new-year-card h2 {
+  color: #FFD700;
+}
+
+.new-year-card p {
+  color: rgba(255, 215, 0, 0.8);
 }
 
 /* 响应式设计 */

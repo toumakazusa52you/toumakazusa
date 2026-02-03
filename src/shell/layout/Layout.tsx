@@ -4,6 +4,7 @@ import CloudMotif from '../../components/decorations/CloudMotif';
 import Firework from '../../components/decorations/Firework';
 import FanWave from '../../components/decorations/FanWave';
 import BrocadeTexture from '../../components/decorations/BrocadeTexture';
+import GoldCoin from '../../components/decorations/GoldCoin';
 import './newYearTheme.css';
 
 interface LayoutProps {
@@ -11,7 +12,7 @@ interface LayoutProps {
   showNavigation?: boolean;
 }
 
-export default function Layout({ children, showNavigation = false }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <div className="new-year-bg decoration">
       <div className="lantern-container">
@@ -51,7 +52,16 @@ export default function Layout({ children, showNavigation = false }: LayoutProps
       <div className="fan-wave-container">
         <FanWave />
       </div>
-      
+
+      <div className="gold-coins">
+        <div className="coin coin-1"><GoldCoin size={35} /></div>
+        <div className="coin coin-2"><GoldCoin size={30} /></div>
+        <div className="coin coin-3"><GoldCoin size={40} /></div>
+        <div className="coin coin-4"><GoldCoin size={35} /></div>
+        <div className="coin coin-5"><GoldCoin size={30} /></div>
+        <div className="coin coin-6"><GoldCoin size={40} /></div>
+      </div>
+
       <main className="main-content">
         <div className="content-container">
           {children}

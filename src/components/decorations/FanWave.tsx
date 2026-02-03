@@ -15,16 +15,21 @@ const FanWave: React.FC<FanWaveProps> = ({ className }) => {
     >
       <defs>
         <linearGradient id="fanGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#cc0000" />
-          <stop offset="100%" stopColor="#990000" />
+          <stop offset="0%" stopColor="#8B0000" />
+          <stop offset="100%" stopColor="#5B0000" />
         </linearGradient>
         <linearGradient id="fanGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#b30000" />
-          <stop offset="100%" stopColor="#800000" />
+          <stop offset="0%" stopColor="#7B0000" />
+          <stop offset="100%" stopColor="#4B0000" />
         </linearGradient>
         <linearGradient id="fanGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#990000" />
-          <stop offset="100%" stopColor="#660000" />
+          <stop offset="0%" stopColor="#6B0000" />
+          <stop offset="100%" stopColor="#3B0000" />
+        </linearGradient>
+        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFD700" />
+          <stop offset="50%" stopColor="#FFA500" />
+          <stop offset="100%" stopColor="#FFD700" />
         </linearGradient>
       </defs>
       
@@ -38,30 +43,32 @@ const FanWave: React.FC<FanWaveProps> = ({ className }) => {
         return (
           <g key={i}>
             <path
-              d={`M ${x} ${y} 
+              d={`M ${x} ${y}
                   Q ${x - radius * 0.7} ${y - radius * 0.7} ${x} ${y - radius}
                   Q ${x + radius * 0.7} ${y - radius * 0.7} ${x} ${y}`}
               fill={`url(#${gradientId})`}
-              opacity="0.9"
-              stroke="rgba(255, 255, 255, 0.1)"
-              strokeWidth="1"
+              opacity="0.95"
+              stroke="url(#goldGradient)"
+              strokeWidth="2"
             />
-            
+
             <line
               x1={x}
               y1={y}
               x2={x}
               y2={y - radius}
-              stroke="rgba(0, 0, 0, 0.2)"
-              strokeWidth="1"
+              stroke="url(#goldGradient)"
+              strokeWidth="1.5"
+              opacity="0.6"
             />
-            
+
             <path
-              d={`M ${x - radius * 0.7} ${y - radius * 0.7} 
+              d={`M ${x - radius * 0.7} ${y - radius * 0.7}
                   Q ${x} ${y - radius * 0.85} ${x + radius * 0.7} ${y - radius * 0.7}`}
               fill="none"
-              stroke="rgba(255, 255, 255, 0.15)"
+              stroke="url(#goldGradient)"
               strokeWidth="1"
+              opacity="0.8"
             />
           </g>
         );
